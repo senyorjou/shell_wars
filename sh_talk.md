@@ -17,7 +17,5 @@
 	- zsh
 
 - ##### Oh my zsh. Da hipster shell
-	- Enhanced commands `cd /u/l/b {TAB}`
-	- Themes
-	- Plugins
-	- Auto completion
+	- Enhanced commands `cd /u/l/b {TAB}` and auto completion
+	- Themes and plugins
