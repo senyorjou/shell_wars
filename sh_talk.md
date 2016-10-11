@@ -1,15 +1,15 @@
 ##Shell Talk
 
 - ##### History
-	- Previous interfaces
+	- Man talks to machine, _hello hardware give me this file please_
 	- TTY interfaces
 	
 - ##### Hello SH. First unix shell application
 	- $HOME and usr, bin, dev, etc, tmp, var...
-	- Billy Joy and the new shell concept
-	- bsh, csh
+	- sh and bsh
 	- pipes and redirection
 	- simple scripting
+	- Billy Joy and the new csh
 	- bash
 		- bash configuration. What are those files? 
 		```.bashrc, .bash_profile, .profile, /etc/profile, /etc/bash.bashrc```
