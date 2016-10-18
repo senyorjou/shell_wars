@@ -1,6 +1,6 @@
 ---
 title:  <··· SHELL TALK ···>
-author: "@eguz & @senyorjou"
+author: "@eguzki & @senyorjou"
 patat:
     wrap: true
 ...
@@ -21,7 +21,7 @@ patat:
 
 - 1989: Bourne Again shell (bash)
 	- POSIX
-   - Linux, Mac
+	- Linux, Mac
 
 - 1990: Z shell
 
@@ -74,6 +74,8 @@ patat:
 		$ mv /tmp/*.pdf ~/pdfs/extra_material
 		
 - Arithmetic expansion
+
+		$  echo $((8+6)) --> 14
 	
 - Brace expansion
 
@@ -91,15 +93,28 @@ patat:
 
 # Let processes talk and reproduce, and kill them
 
-- I/O Redirection: Output, Input, pipelines. __WRITE FEW SUPER USEFUL EXAMPLES__
-	- example pipelines: filter and word count freq __WRITE ONE USEFUL EXAMPLE__
+- I/O Redirection: Output, Input, pipelines. 
+	- example pipelines: filter and word count freq
 
+```
+grep -v hola < hello.txt > hello-filtered.txt
+cat bash.txt |  tr ' ' '\n'  | grep -vi "the\|and\|a\|is\|to\|of" | grep -ve '^$' | sort | uniq -c | sort -r | head Qué 
+```
 - Job Control
 	- ps, kill (signalling), jobs, fg, bg
 
 - History
 
+```
+!!
+!cmd
+{CTRL-R} / {CTRL-S}
+```
+
 - Readline Functions binding. ```bind -P```
+	- Last command used
+	- Erase all line
+	- Invoque VIM 
 
 # Configuration and other headaches
 
@@ -161,6 +176,11 @@ Loading order of files on a debian/ubuntu system
 - Option autocomplete
 
 		ls -{TAB}
+
+- Smart history
+
+		ls {UP}
+
 
 
 # Oh my zsh. A young shell from 1.990 with some steroids
