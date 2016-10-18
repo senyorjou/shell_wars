@@ -14,22 +14,18 @@
     - 1990: Z shell
 
 - ##### What's that "home of a turtle"?
-    - Terminal, shell, tty, console -> WTF!
-    - terminal = tty: input/output environment
-    - console: physical terminal connected to computer
-    - shell: command line interpreter.
-    - terminal emulators or pseudo terminals
+	- Terminal, shell, tty, console -> WTF!
+	- terminal = tty: input/output environment
+   	- console: physical terminal connected to computer
+   	- shell: command line interpreter.
+   	- terminal emulators or pseudo terminals
         - Things get even more complicated when you start running pseudo terminals inside pseudo terminals, à la screen(1) or ssh(1).
-    - TTY interfaces
-        - Serial Port terminals: /dev/ttySX
-        - Pseudo terminal devices: /dev/pts/X
-        - To find out which tty's are attached to which processes use the "ps -a"
 
 - ##### Overview bash basic concepts
     - Primary interface that users see when they log in, whose primary purpose is to start other programs.
     - man bash
     - Shell builtin few known commands: pwd, cd, echo, history, kill
-    - Expansion
+    - Expansion. __WRITE FEW SUPER USEFUL EXAMPLES__
         - Pathname expansion
         - Tilde expansion
         - Arithmetic expansion
@@ -37,12 +33,12 @@
         - Parameter expansion: Environment variables
         - Command Substitution
         - Quoting
-    - I/O Redirection: Output, Input, pipelines
-        - example pipelines: filter and word count
+    - I/O Redirection: Output, Input, pipelines. __WRITE FEW SUPER USEFUL EXAMPLES__
+        - example pipelines: filter and word count freq __WRITE ONE USEFUL EXAMPLE__
     - Job Control
         - ps, kill (signalling), jobs, fg, bg
     - History
-    - Readline Functions binding
+    - Readline Functions binding. ```bind -P```
     - Configuration (distribution dependent)
         - /etc/profile
             The systemwide initialization file, executed for login shells
@@ -56,22 +52,10 @@
             Individual readline initialization file
 
 
-- ##### Shell scripting. Hello SH. First unix shell application
-    - $HOME and usr, bin, dev, etc, tmp, var...
-    - sh and bsh
-    - pipes and redirection
-    - simple scripting
-    - Billy Joy and the new csh
-    - bash
-        - bash configuration. What are those files?
-        ```.bashrc, .bash_profile, .profile, /etc/profile, /etc/bash.bashrc```
-
-    - zsh
-
 - ##### Bash VS Zsh. Main differences
     - Software License
         - Bash: GNU, GPL
-        - Zsh: Mit-like
+        - Zsh: MIT-like
     - Compatibility/Portability
         - Bash: POSIX.2: Shell and Utilities (IEEE Std 1003.2-1992)
         - Zsh: Enhanced features not following POSIX
