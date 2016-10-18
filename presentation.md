@@ -20,8 +20,8 @@ patat:
 - 1983: Korn Shell
 
 - 1989: Bourne Again shell (bash)
-	- POSIX
-	- Linux, Mac
+    - POSIX
+    - Linux, Mac
 
 - 1990: Z shell
 
@@ -36,7 +36,7 @@ patat:
 - shell: command line interpreter.
 
 - terminal emulators or pseudo terminals
-	- Things get even more complicated when you start running pseudo terminals inside pseudo terminals, à la screen(1) or ssh(1).
+    - Things get even more complicated when you start running pseudo terminals inside pseudo terminals, à la __screen__ or __ssh__.
 
 # Overview bash basic concepts
 - Primary interface that users see when they log in, whose primary purpose is to start other programs.
@@ -45,111 +45,117 @@ patat:
 
 - Shell builtin few known commands: pwd, cd, echo, history, kill
 
-- Expansion. __WRITE FEW SUPER USEFUL EXAMPLES__
-	
-	- Pathname expansion
-	
-	- Tilde expansion
-	
-	- Arithmetic expansion
-	
-	- Brace expansion
-	
-	- Parameter expansion: Environment variables
-	
-	- Command Substitution
-	
-	- Quoting
+- Expansion.
+
+    - Pathname expansion
+
+    - Tilde expansion
+
+    - Arithmetic expansion
+
+    - Brace expansion
+
+    - Parameter expansion: Environment variables
+
+    - Command Substitution
+
+    - Quoting
 
 
 # Basic concepts. Examples. 1
 - Pathname expansion
 
-		$ ls *.txt          --> anything with .txt
-		$ ls plan?.txt      --> plan1.txt planZ.txt plan_.txt...
-		$ ls [pf]lan*.txt   --> plan.txt, flan.txt, planazo.txt
+        $ ls *.txt          --> anything with .txt
+        $ ls plan?.txt      --> plan1.txt planZ.txt plan_.txt...
+        $ ls [pf]lan*.txt   --> plan.txt, flan.txt, planazo.txt
 
 - Tilde expansion. `~` is your home
 
-		$ mv /tmp/*.pdf ~/pdfs/extra_material
-		
+        $ mv /tmp/*.pdf ~/pdfs/extra_material
+
 - Arithmetic expansion
 
-		$  echo $((8+6)) --> 14
-	
+        $ echo $((8+6)) --> 14
+
 - Brace expansion
 
-		mkdir project/{public,src,dist,docs} 
-	
+        $ mkdir project/{public,src,dist,docs}
+
 
 # Basic concepts. Examples. 2
-	
+
 - Parameter expansion: Environment variables
-	
+
 - Command Substitution
-	
+
 - Quoting
 
 
 # Let processes talk and reproduce, and kill them
 
-- I/O Redirection: Output, Input, pipelines. 
-	- example pipelines: filter and word count freq
+- I/O Redirection: Output, Input, pipelines.
+    - example pipelines: filter and word count freq
 
 ```
 grep -v hola < hello.txt > hello-filtered.txt
-cat bash.txt |  tr ' ' '\n'  | grep -vi "the\|and\|a\|is\|to\|of" | grep -ve '^$' | sort | uniq -c | sort -r | head Qué 
+cat bash.txt |  tr ' ' '\n'  | grep -vi "the\|and\|a\|is\|to\|of" | grep -ve '^$' | sort | uniq -c | sort -r | head Qué
 ```
 - Job Control
-	- ps, kill (signalling), jobs, fg, bg
+    - &, ps, kill (signalling), jobs, fg, bg
 
 - History
 
 ```
 !!
+!n
 !cmd
+!*
 {CTRL-R} / {CTRL-S}
 ```
 
 - Readline Functions binding. ```bind -P```
-	- Last command used
-	- Erase all line
-	- Invoque VIM 
+    - Reuse arguments from previous command
+    - Move efficiently through command line
+    - Edit command line
+        - Invoque VIM
 
 # Configuration and other headaches
 
-Loading order of files on a debian/ubuntu system
-
 - /etc/profile
-	- The systemwide initialization file, executed for login shells
+    - The systemwide initialization file, executed for login shells
 
 - /etc/bash.bashrc
-	- The systemwide per-interactive-shell startup file
+    - The systemwide per-interactive-shell startup file
+
+- /etc/bash.bash_logout
+    - The systemwide login shell cleanup file, executed when a login shell exits
 
 - ~/.bash_profile
-	- The personal initialization file, executed for login shells
+    - The personal initialization file, executed for login shells
 
 - ~/.bashrc
-	- The individual per-interactive-shell startup file
+    - The individual per-interactive-shell startup file
+
+- ~/.bash_logout
+    - The individual login shell cleanup file, executed when a login shell exits
 
 - ~/.inputrc
-	- Individual readline initialization file
+    - Individual readline initialization file
 
 # Configuration loading table
 
-|   | login  | bash  | new window  | ssh  |
-|---|:-:|:-:|:-:|:-:|
-| /etc/profile  |*|*|   |   |
-| /etc/bash.bashrc  |   |   |   |   |
-| ~/.bash_profile  |   |   |   |   |
-| ~/.bashrc  |   |   |   |   |
-| ~/.inputrc  |   |   |   |   |
+|   | login  | bash  | new window  | ssh interactive | exec scripts via ssh
+|---|:-:|:-:|:-:|:-:|:-:|
+| /etc/profile  |*|||*|*|
+| /etc/bash.bashrc  |*|*|*|*||
+| ~/.bash_profile  |*|||*|*|
+| ~/.bashrc  |*|*|*|*||
 
 
 # Bash VS Zsh. Main differences
 - Software License
 
-    - Bash: GNU, GPL   --> __Cannot be shipped in propietary systems__
+    - Bash: GNU, GPLv3 --> __Cannot be shipped in propietary systems__
 
     - Zsh: MIT-like    --> __Do whatever you want__
 
@@ -165,21 +171,21 @@ Loading order of files on a debian/ubuntu system
 - Cursor navigation on options
 - Say goodbye to cd and path expansion
 
-		....
-		/u/local/b    --> cd /usr/local/bin
-		~
+        ....
+        /u/local/b    --> cd /usr/local/bin
+        ~
 
 - Command completion
-		
-		git ch{TAB}
-				 
+
+        git ch{TAB}
+
 - Option autocomplete
 
-		ls -{TAB}
+        ls -{TAB}
 
 - Smart history
 
-		ls {UP}
+        ls {UP}
 
 
 
